@@ -3,18 +3,16 @@ use std::cmp::Ordering;
 use std::io;
 
 fn main() {
-    let number: u32 = rand::thread_rng().gen_range(1..=100);
+    let number: u8 = rand::thread_rng().gen_range(u8::MIN..=u8::MAX);
     let mut guess = String::new();
 
-    println!("Guess (1 - 100): ");
+    println!("Guess ({} - {}): ", u8::MIN, u8::MAX);
 
     io::stdin()
         .read_line(&mut guess)
         .expect("Failed to read line");
 
-    let guess: u32 = guess.trim().parse().expect("Guess is not a number!");
-
-    println!("{guess}");
+    let guess: u8 = guess.trim().parse().expect("Your guess is not valid!");
 
     match guess.cmp(&number) {
         Ordering::Less => println!("Too low!"),
