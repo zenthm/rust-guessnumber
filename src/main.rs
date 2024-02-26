@@ -6,7 +6,7 @@ fn main() {
     let number: u32 = rand::thread_rng().gen_range(1..=100);
     let mut guess = String::new();
 
-    println!("Guess: ");
+    println!("Guess (1 - 100): ");
 
     io::stdin()
         .read_line(&mut guess)
